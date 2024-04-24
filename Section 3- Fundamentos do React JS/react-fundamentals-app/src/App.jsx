@@ -1,10 +1,16 @@
-import './App.css'
+import './App.css';
+import Welcome from './components/Welcome';
+import Greeting from './components/Greeting';
+
 
 function App() {
   
   return (
     <>
-      <h1>Olá Mundo! Bora aprender React!</h1>
+      {/* 9.1 Criacao de componente */}
+      <Welcome/>
+      {/* 9.2 Expressoes em JSX */}
+      <Greeting/>
     </>
   )
 }
