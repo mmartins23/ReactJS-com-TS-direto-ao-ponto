@@ -11,6 +11,8 @@ import ParentEventComponent from './components/ParentEventComponent';
 import FormEvents from './components/FormEvents';
 import RenderConditional from './components/RenderConditional';
 import LoginButton from './components/LoginButton';
+import Warning from './components/Warning';
+import NumberList from './components/NumberList';
 
 
 function App() {
@@ -41,6 +43,10 @@ function App() {
       {/* 13 Ternary */}
       <LoginButton loggedIn={true}/>
       <LoginButton loggedIn={false}/>
+      {/* 14 Rendering Null */}
+      <Warning warning='The component was a warning'/>
+      {/* 14 List */}
+      <NumberList numbers={[5,10,15,20,25]}/>
     </>
   )
 }
