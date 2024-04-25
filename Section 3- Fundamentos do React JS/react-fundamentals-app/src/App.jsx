@@ -4,6 +4,8 @@ import Welcome from './components/Welcome';
 import Greeting from './components/Greeting';
 import ParentComponent from './components/ParentComponent';
 import User from './components/User';
+import Counter from './components/Counter';
+import Form from './components/Form';
 
 
 function App() {
@@ -19,6 +21,10 @@ function App() {
       {/* 10 Props */}
       <User name="Alice" age={30} jobRole="Developer" />
       <User name="Bob" age={25} jobRole="Designer" />
+      {/* useState */}
+      <Counter/>
+      {/* Multiple state */}
+      <Form/>
     </>
   )
 }
