@@ -13,6 +13,7 @@ import RenderConditional from './components/RenderConditional';
 import LoginButton from './components/LoginButton';
 import Warning from './components/Warning';
 import NumberList from './components/NumberList';
+import ButtonWithStyles from './components/ButtonWithStyles';
 
 
 function App() {
@@ -30,7 +31,7 @@ function App() {
       <User name="Bob" age={25} jobRole="Designer" />
       {/* 11 useState */}
       <Counter/>
-      {/* 11Multiple state */}
+      {/* 11 Multiple state */}
       <Form/>
       {/* 12 Events */}
       <Button/>
@@ -47,6 +48,8 @@ function App() {
       <Warning warning='The component was a warning'/>
       {/* 14 List */}
       <NumberList numbers={[5,10,15,20,25]}/>
+      {/* 15 Styling Components */}
+      <ButtonWithStyles>Button with styles</ButtonWithStyles>
     </>
   )
 }

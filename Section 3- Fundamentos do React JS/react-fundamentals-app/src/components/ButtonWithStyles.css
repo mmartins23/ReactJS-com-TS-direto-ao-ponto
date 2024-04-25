@@ -1,0 +1,20 @@
+/* ButtonWithStyles.css */
+.button {
+    background-color: #007bff;
+    /* Cor de fundo azul */
+    color: #fff;
+    /* Cor do texto branco */
+    padding: 10px 20px;
+    /* Padding interno de 10px na vertical e 20px na horizontal */
+    border: none;
+    /* Sem borda */
+    border-radius: 5px;
+    /* Borda arredondada */
+    cursor: pointer;
+    /* Cursor de mão ao passar */
+}
+
+.button:hover {
+    background-color: #0056b3;
+    /* Cor de fundo mais escura ao passar */
+}
