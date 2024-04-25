@@ -8,6 +8,9 @@ import Counter from './components/Counter';
 import Form from './components/Form';
 import Button from './components/Button';
 import ParentEventComponent from './components/ParentEventComponent';
+import FormEvents from './components/FormEvents';
+import RenderConditional from './components/RenderConditional';
+import LoginButton from './components/LoginButton';
 
 
 function App() {
@@ -23,14 +26,21 @@ function App() {
       {/* 10 Props */}
       <User name="Alice" age={30} jobRole="Developer" />
       <User name="Bob" age={25} jobRole="Designer" />
-      {/* useState */}
+      {/* 11 useState */}
       <Counter/>
-      {/* Multiple state */}
+      {/* 11Multiple state */}
       <Form/>
-      {/* Events */}
+      {/* 12 Events */}
       <Button/>
-      {/*  */}
+      {/* 12 Passing events functions as props  */}
       <ParentEventComponent/>
+      {/* 13 Form */}
+      <FormEvents/>
+      {/* 13 Conditional Rendering */}
+      <RenderConditional user="John"/>
+      {/* 13 Ternary */}
+      <LoginButton loggedIn={true}/>
+      <LoginButton loggedIn={false}/>
     </>
   )
 }
