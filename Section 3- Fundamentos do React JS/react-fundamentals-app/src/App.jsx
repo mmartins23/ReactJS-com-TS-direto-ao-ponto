@@ -14,9 +14,26 @@ import LoginButton from './components/LoginButton';
 import Warning from './components/Warning';
 import NumberList from './components/NumberList';
 import ButtonWithStyles from './components/ButtonWithStyles';
+import GreetingExer from './components/GreetingExer';
+import CounterExer from './components/CounterExer';
+import TaskListExer from './components/TaskListExer';
 
 
 function App() {
+
+  const tasks = [{
+    id: 1,
+    text: "walk the dog"
+  }, 
+  {
+    id: 2, 
+    text: "buy groceries"
+  },
+  {
+    id:3,
+    text: "study React"
+  }
+]
   
   return (
     <>
@@ -50,6 +67,12 @@ function App() {
       <NumberList numbers={[5,10,15,20,25]}/>
       {/* 15 Styling Components */}
       <ButtonWithStyles>Button with styles</ButtonWithStyles>
+      {/* 16 Exer 1 */}
+      <GreetingExer name={"Peter"}/>
+      {/* 16 Exer 2 */}
+      <CounterExer/>
+      {/* 16 Exer 3 */}
+      <TaskListExer tasks={tasks}/>
     </>
   )
 }
