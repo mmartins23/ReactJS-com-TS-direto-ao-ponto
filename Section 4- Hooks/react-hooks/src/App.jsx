@@ -4,8 +4,11 @@ import ChildComponent from './components/ChildComponent'
 import { MyContextProvider } from './contexts/MyContext'
 import ContextValue from './components/ContextValue'
 import Counter from './components/Counter'
+import useWindowDimensions from './hooks/useWindowDimensions';
+
 
 function App() {
+  const { width, height } = useWindowDimensions();
 
   return (
     <>
@@ -24,6 +27,10 @@ function App() {
       <h2>useReducer Example</h2>
       <Counter/>
       <hr/>
+      {/* 20. Custom Hook Example */}
+      <h2>Custom Hooks Example</h2>
+      <p>width: {width}</p>
+      <p>height: {height}</p>
     </>
   )
 }
