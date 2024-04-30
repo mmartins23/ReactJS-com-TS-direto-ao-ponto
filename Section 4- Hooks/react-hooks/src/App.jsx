@@ -5,6 +5,8 @@ import { MyContextProvider } from './contexts/MyContext'
 import ContextValue from './components/ContextValue'
 import Counter from './components/Counter'
 import useWindowDimensions from './hooks/useWindowDimensions';
+import Container from './components/Container';
+
 
 
 function App() {
@@ -31,6 +33,11 @@ function App() {
       <h2>Custom Hooks Example</h2>
       <p>width: {width}</p>
       <p>height: {height}</p>
+      <hr/>
+      {/* 21. prop children */}
+      <Container>
+        <p>Prop children is used here!</p>
+      </Container>
     </>
   )
 }
