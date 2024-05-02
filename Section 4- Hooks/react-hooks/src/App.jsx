@@ -7,6 +7,7 @@ import Counter from './components/Counter'
 import useWindowDimensions from './hooks/useWindowDimensions';
 import Container from './components/Container';
 import UserProfile from './components/UserProfile';
+import UseMemoExample from './components/UseMemoExample'
 
 
 
@@ -44,6 +45,11 @@ function App() {
       <UserProfile userID={1}/>
       <UserProfile userID={5}/>
       <UserProfile userID={9}/>
+      <hr/>
+      {/* 23 Example useMemo and useCallback */}
+      <h2>Example useMemo</h2>
+      <UseMemoExample/>
+      <hr/>
     </>
   )
 }
