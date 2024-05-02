@@ -6,6 +6,7 @@ import ContextValue from './components/ContextValue'
 import Counter from './components/Counter'
 import useWindowDimensions from './hooks/useWindowDimensions';
 import Container from './components/Container';
+import UserProfile from './components/UserProfile';
 
 
 
@@ -38,6 +39,11 @@ function App() {
       <Container>
         <p>Prop children is used here!</p>
       </Container>
+      {/* 22. Syncing State with Props */}
+      <h2>Syncing State with Props Example</h2>
+      <UserProfile userID={1}/>
+      <UserProfile userID={5}/>
+      <UserProfile userID={9}/>
     </>
   )
 }
