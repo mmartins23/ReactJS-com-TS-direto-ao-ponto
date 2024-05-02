@@ -8,6 +8,7 @@ import useWindowDimensions from './hooks/useWindowDimensions';
 import Container from './components/Container';
 import UserProfile from './components/UserProfile';
 import UseMemoExample from './components/UseMemoExample'
+import CallbackCounter from './components/CallbackCounter'
 
 
 
@@ -50,6 +51,7 @@ function App() {
       <h2>Example useMemo</h2>
       <UseMemoExample/>
       <hr/>
+      <CallbackCounter/>
     </>
   )
 }
