@@ -9,11 +9,14 @@ import Container from './components/Container';
 import UserProfile from './components/UserProfile';
 import UseMemoExample from './components/UseMemoExample'
 import CallbackCounter from './components/CallbackCounter'
+import Exer01 from '../exer/Exer01'
 
 
 
 function App() {
   const { width, height } = useWindowDimensions();
+
+  const userInfo = {name: 'Alice', job: 'Developer'};
 
   return (
     <>
@@ -52,6 +55,9 @@ function App() {
       <UseMemoExample/>
       <hr/>
       <CallbackCounter/>
+      <hr/>
+     {/* Exer 01 */}
+     <Exer01 userInfo={userInfo}/>
     </>
   )
 }
