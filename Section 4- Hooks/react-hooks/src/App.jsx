@@ -10,6 +10,7 @@ import UserProfile from './components/UserProfile';
 import UseMemoExample from './components/UseMemoExample'
 import CallbackCounter from './components/CallbackCounter'
 import Exer01 from '../exer/Exer01'
+import Exer02 from '../exer/Exer02'
 
 
 
@@ -58,6 +59,7 @@ function App() {
       <hr/>
      {/* Exer 01 */}
      <Exer01 userInfo={userInfo}/>
+     <Exer02 number={5}/>
     </>
   )
 }
