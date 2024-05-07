@@ -1,7 +1,5 @@
 # Generics
 
-**Generics:**
-
 Generics em TypeScript permitem criar componentes que podem trabalhar com uma variedade de tipos, enquanto ainda mantêm a segurança de tipos durante a compilação. Aqui está a explicação dos exemplos fornecidos:
 
 1. **Função genérica para retornar o array com qualquer tipo:**
