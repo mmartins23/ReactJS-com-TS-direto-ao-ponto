@@ -1,6 +1,5 @@
 # Todo List Project
 
-
 ## Components Overview:
 
 1. **Task:**
@@ -83,3 +82,44 @@ Let's break down CSS:
     - Changes the background color of submit buttons to an even darker shade of blue (#204d74) when clicked.
 
 These styles collectively provide a cohesive and visually appealing design for the components, enhancing the user experience.
+
+
+***
+
+## Adding new tasks:
+
+In this React application, tasks are being added through the following process:
+
+1. **App Component (Parent Component):**
+   - The `App` component serves as the parent component where task management is coordinated.
+   - It initializes a state variable `tasks` using the `useState` hook to store an array of tasks.
+   - The `addTask` function is defined within the `App` component. This function takes a task as an argument and adds it to the `tasks` array.
+   - Inside the `addTask` function, a new task object is created with properties `id`, `text`, and `done`. The `id` is generated using `Date.now()` to ensure uniqueness.
+   - The `addTask` function then updates the `tasks` state by appending the new task to the existing array using the spread operator (`...`).
+   - The `TaskInput` and `TaskList` components are imported and rendered within the `App` component.
+   - The `TaskInput` component is passed a callback function `onAddTask`, which is set to the `addTask` function defined in the `App` component.
+   - The `TaskList` component is passed the `tasks` array as a prop.
+
+2. **TaskInput Component:**
+   - The `TaskInput` component is responsible for allowing users to input new tasks.
+   - It initializes a state variable `input` using the `useState` hook to store the value of the input field.
+   - When the form is submitted (`onSubmit` event), the `handleSubmit` function is called.
+   - In the `handleSubmit` function, the input value is trimmed to remove any leading or trailing whitespace. If the trimmed input is not empty, the `onAddTask` callback function (received as a prop) is called with the input value as an argument.
+   - After adding the task, the `input` state is reset to an empty string, clearing the input field.
+
+3. **TaskList Component:**
+   - The `TaskList` component is responsible for displaying the list of tasks.
+   - It receives the `tasks` array as a prop.
+   - Inside the component, it maps over the `tasks` array and renders a `Task` component for each task in the array.
+   - Each `Task` component is passed a `key` prop with the task's `id` for efficient rendering and a `task` prop containing the task object.
+
+4. **Task Component:**
+   - The `Task` component is responsible for rendering individual task items.
+   - It receives a `task` object as a prop, containing properties like `text`, `id`, and `done`.
+   - Inside the component, it displays the task text using `{task.text}` within a `span` element.
+   - Additionally, it includes a "Remove" button, which can be used to delete the task item (though the functionality for removing tasks is not implemented in the provided code).
+
+In summary, tasks are added to the application by inputting task text in the `TaskInput` component, which triggers the `addTask` function in the `App` component. The new task is then added to the `tasks` state array and displayed in the `TaskList` component.
+
+
+***
