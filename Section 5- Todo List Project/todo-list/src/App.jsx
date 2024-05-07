@@ -3,20 +3,20 @@ import TaskInput from './components/TaskInput';
 import TaskList from './components/TaskList';
 
 // Hooks
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
 function App() {
+  const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem("tasks")) || []);
 
-  const [tasks, setTasks] = useState([]);
+  useEffect(() => {
+
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+
+  }, [tasks]);
 
   const addTask = (task) => {
-
-    // id, title, done
-
     setTasks([...tasks, { id: Date.now(), text: task, done: false }]);
-
-    // localStorage
   }
 
   const deleteTask = (taskId) => {

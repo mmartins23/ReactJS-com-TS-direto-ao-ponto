@@ -185,3 +185,31 @@ In summary, the "toggle task" functionality allows users to mark tasks as comple
 
 
 ***
+
+## Saving data to LocalStorage:
+
+In this React application, data is being saved using `localStorage` in the `useEffect` hook. Here's how it works:
+
+1. **Retrieving Data from Local Storage:**
+   - When the `App` component is mounted, it initializes the `tasks` state variable using `useState`.
+   - The initial value of `tasks` is set to the result of `JSON.parse(localStorage.getItem("tasks")) || []`.
+   - This retrieves the stored tasks from local storage by using `localStorage.getItem("tasks")`. If there are no tasks stored (or if it's the first time running the app), it falls back to an empty array (`[]`).
+
+2. **Saving Data to Local Storage:**
+   - The `useEffect` hook is used to save the `tasks` state to local storage whenever it changes.
+   - It takes a callback function as its first argument, which is executed after every render if the dependency array (second argument) changes.
+   - Inside the callback function, `localStorage.setItem("tasks", JSON.stringify(tasks))` is called.
+   - This converts the `tasks` array to a JSON string using `JSON.stringify()` and saves it to local storage under the key "tasks".
+
+3. **Updating Data:**
+   - Whenever the `tasks` state changes (due to adding, deleting, or toggling tasks), the `useEffect` hook is triggered.
+   - This causes the callback function within the `useEffect` hook to execute, saving the updated `tasks` array to local storage.
+
+4. **Task Management Functions:**
+   - The `addTask`, `deleteTask`, and `toggleTaskDone` functions are responsible for adding, deleting, and toggling tasks, respectively.
+   - These functions update the `tasks` state using `setTasks`, which triggers the `useEffect` hook, ultimately saving the updated tasks to local storage.
+
+5. **Rendering Components:**
+   - The `App` component renders the `TaskInput` and `TaskList` components, passing down the `tasks` state and task management functions as props.
+
+In summary, the application utilizes `localStorage` to persist task data across page reloads. Tasks are initially retrieved from local storage when the component mounts, and they are saved to local storage whenever they are added, deleted, or toggled. This ensures that the task data remains consistent even after the user refreshes the page or closes the browser.
