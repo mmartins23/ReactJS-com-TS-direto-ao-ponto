@@ -1,12 +1,14 @@
-import { useState } from 'react';
-import viteLogo from '/vite.svg';
+import TaskInput from './components/TaskInput';
+import TaskList from './components/TaskList';
 
 
 function App() {
 
   return (
     <>
-    <h2>Starting project</h2>
+    <h1>Task Lists</h1>
+    <TaskInput/>
+    <TaskList/>
     </>
   )
 }
