@@ -1,8 +1,8 @@
-const Task = ({task}) => {
+const Task = ({ task, onDelete }) => {
     return (
         <li>
             <span>{task.text}</span>
-            <button>Remove</button>
+            <button onClick={onDelete}>Remove</button>
         </li>
     )
 }

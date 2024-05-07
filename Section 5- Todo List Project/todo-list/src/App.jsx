@@ -19,11 +19,15 @@ function App() {
     // localStorage
   }
 
+  const deleteTask = (taskId) => {
+    setTasks(tasks.filter(task => task.id != taskId))
+  }
+
   return (
     <>
       <h1>Task Lists</h1>
-      <TaskInput onAddTask={addTask}/>
-      <TaskList tasks={tasks} />
+      <TaskInput onAddTask={addTask} />
+      <TaskList tasks={tasks} onDeleteTask={deleteTask} />
     </>
   )
 }

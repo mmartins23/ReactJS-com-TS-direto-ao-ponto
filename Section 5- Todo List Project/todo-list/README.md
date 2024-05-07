@@ -121,5 +121,38 @@ In this React application, tasks are being added through the following process:
 
 In summary, tasks are added to the application by inputting task text in the `TaskInput` component, which triggers the `addTask` function in the `App` component. The new task is then added to the `tasks` state array and displayed in the `TaskList` component.
 
+***
+
+## Removing tasks:
+
+In this React application, tasks are being deleted through the following process:
+
+1. **App Component (Parent Component):**
+   - The `App` component is the parent component where task management is coordinated.
+   - It initializes a state variable `tasks` using the `useState` hook to store an array of tasks.
+   - The `addTask` function is defined within the `App` component, responsible for adding tasks to the `tasks` array.
+   - The `deleteTask` function is also defined within the `App` component, responsible for deleting tasks from the `tasks` array.
+   - Both `addTask` and `deleteTask` functions are passed down to the child components as props.
+
+2. **TaskList Component:**
+   - The `TaskList` component receives the `tasks` array and `onDeleteTask` function as props.
+   - Inside the component, it maps over the `tasks` array and renders a `Task` component for each task.
+   - Each `Task` component is passed a `key` prop with the task's `id` for efficient rendering and a `task` prop containing the task object.
+   - Additionally, the `onDeleteTask` function is passed down to each `Task` component.
+
+3. **Task Component:**
+   - The `Task` component is responsible for rendering individual task items.
+   - It receives a `task` object as a prop, containing properties like `text`, `id`, and `done`.
+   - The `onDelete` function is received as a prop, which is triggered when the "Remove" button is clicked.
+   - When the "Remove" button is clicked, the `onDelete` function is called, which in turn calls the `deleteTask` function defined in the `App` component with the `taskId` as an argument.
+
+4. **Deleting Task:**
+   - When the "Remove" button in the `Task` component is clicked, it triggers the `onDelete` function passed down from the `TaskList`.
+   - The `onDelete` function then calls the `deleteTask` function in the `App` component, passing the `taskId` of the task to be deleted.
+   - Inside the `deleteTask` function, the `tasks` state is updated by filtering out the task with the matching `taskId`.
+   - The filtered `tasks` array is then set as the new state, effectively removing the task from the list.
+
+In summary, tasks are deleted from the application by clicking the "Remove" button in the `Task` component, which triggers the `onDelete` function and subsequently the `deleteTask` function in the `App` component. The task is then filtered out from the `tasks` array, and the updated array is set as the new state, reflecting the deletion in the UI.
+
 
 ***

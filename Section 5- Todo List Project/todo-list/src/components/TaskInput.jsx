@@ -7,7 +7,8 @@ const TaskInput = ({ onAddTask }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if(input.trim()) {
+        // Checks if the input value, after trimming whitespace, is not empty
+        if (input.trim()) {
             onAddTask(input);
             setInput("");
         }
