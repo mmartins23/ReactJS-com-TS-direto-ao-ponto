@@ -26,3 +26,23 @@ console.log(typeof numbers); // Output: "object"
 // Tuple
 let employee = ["John", 30]; // tuple [string, number]
 console.log(typeof employee); // Output: "object"
+// Functions
+const multiply = function (a, b) {
+    return a * b;
+};
+const result = multiply(4, 2);
+console.log(result); // Output: 8
+function greet(name, greeting = "Hello") {
+    console.log(`${greeting}, ${name}!`);
+}
+greet("John"); // Output: Hello, John!
+greet("Alice", "Hi"); // Output: Hi, Alice!
+// Enum
+var Color;
+(function (Color) {
+    Color["Red"] = "RED";
+    Color["Green"] = "GREEN";
+    Color["Blue"] = "BLUE";
+})(Color || (Color = {}));
+const primaryColor = Color.Red;
+console.log(primaryColor); // Output: "RED"
