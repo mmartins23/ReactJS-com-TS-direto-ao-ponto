@@ -1,7 +1,9 @@
-const Task = ({ task, onDelete }) => {
+const Task = ({ task, onDelete, onToggleTask }) => {
     return (
         <li>
-            <span>{task.text}</span>
+            <span
+                onClick={onToggleTask}
+                style={{ textDecoration: task.done ? "line-through" : "none" }}>{task.text}</span>
             <button onClick={onDelete}>Remove</button>
         </li>
     )

@@ -156,3 +156,32 @@ In summary, tasks are deleted from the application by clicking the "Remove" butt
 
 
 ***
+
+## Toggle tasks:
+
+In this React application, the "toggle task" functionality allows users to mark tasks as completed or uncompleted by clicking on the task text. Here's how it works:
+
+1. **App Component (Parent Component):**
+   - The `toggleTaskDone` function is defined within the `App` component. It takes a `taskId` as an argument.
+   - Inside the function, the `setTasks` function is called with the result of mapping over the `tasks` array. For each task, if the task's `id` matches the `taskId` provided, its `done` property is toggled (flipped between `true` and `false`). Otherwise, the task remains unchanged.
+   - The updated tasks array is then set as the new state using `setTasks`.
+
+2. **TaskList Component:**
+   - The `TaskList` component receives the `tasks` array, `onDeleteTask`, and `onToggleTask` functions as props.
+   - Inside the component, it maps over the `tasks` array and renders a `Task` component for each task.
+   - Each `Task` component is passed a `key` prop with the task's `id` for efficient rendering and `task`, `onDelete`, and `onToggleTask` props containing the task object and callback functions for deleting and toggling tasks, respectively.
+
+3. **Task Component:**
+   - The `Task` component is responsible for rendering individual task items.
+   - It receives a `task` object as a prop, containing properties like `text`, `id`, and `done`.
+   - When the task text (`<span>`) is clicked, the `onToggleTask` function is triggered.
+   - The `onToggleTask` function toggles the `done` property of the task by calling the `toggleTaskDone` function defined in the `App` component, passing the task's `id`.
+   - Additionally, the "Remove" button is rendered for deleting tasks, and when clicked, it triggers the `onDelete` function passed down from the `TaskList`.
+
+4. **Visual Feedback:**
+   - When a task is marked as completed (`done` is `true`), its text is visually indicated with a line-through style. This is achieved by dynamically setting the `textDecoration` CSS property inline based on the task's `done` status.
+
+In summary, the "toggle task" functionality allows users to mark tasks as completed or uncompleted by clicking on the task text. When clicked, the `toggleTaskDone` function is called to toggle the `done` property of the task, and the UI is updated to reflect the change in task status.
+
+
+***
