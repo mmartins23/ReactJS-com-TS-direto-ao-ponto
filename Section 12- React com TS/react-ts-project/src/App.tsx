@@ -5,6 +5,7 @@ import Counter2 from './components/Counter2';
 import Greeting from './components/Greeting';
 import LoginForm from './components/LoginForm';
 import ShoppingList from './components/ShoppingList';
+import ShowPosts from './components/ShowPosts';
 import TextInput from './components/TextInput';
 import { TemaProvider } from './context/TemaContext';
 
@@ -32,6 +33,8 @@ function App() {
           {/* Outros componentes que consomem o contexto TemaContext também viriam aqui */}
         </div>
       </TemaProvider>
+      {/* 8- HTTP Requests com Axios em TS */}
+      <ShowPosts/>
     </>
   )
 }
