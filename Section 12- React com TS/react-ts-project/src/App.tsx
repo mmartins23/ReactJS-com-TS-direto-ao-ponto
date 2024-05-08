@@ -1,5 +1,6 @@
 import './App.css';
 import Counter from './components/Counter';
+import Counter2 from './components/Counter2';
 import Greeting from './components/Greeting';
 import LoginForm from './components/LoginForm';
 import ShoppingList from './components/ShoppingList';
@@ -20,6 +21,8 @@ function App() {
       <LoginForm/>
       {/* 5. Exer 2 */}
       <ShoppingList/>
+      {/* 6. useReducer com TS */}
+      <Counter2/>
     </>
   )
 }
