@@ -1,6 +1,7 @@
 import './App.css';
 import Counter from './components/Counter';
 import Greeting from './components/Greeting';
+import LoginForm from './components/LoginForm';
 import TextInput from './components/TextInput';
 
 function App() {
@@ -14,6 +15,8 @@ function App() {
       <Counter />
       {/* 3. Events types  */}
       <TextInput />
+      {/* 4. Exer */}
+      <LoginForm/>
     </>
   )
 }
