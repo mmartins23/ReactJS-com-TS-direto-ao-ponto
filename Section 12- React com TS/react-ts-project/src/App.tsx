@@ -1,10 +1,12 @@
 import './App.css';
+import BarraFerramentas from './components/BotaoFerramentas';
 import Counter from './components/Counter';
 import Counter2 from './components/Counter2';
 import Greeting from './components/Greeting';
 import LoginForm from './components/LoginForm';
 import ShoppingList from './components/ShoppingList';
 import TextInput from './components/TextInput';
+import { TemaProvider } from './context/TemaContext';
 
 function App() {
 
@@ -23,6 +25,13 @@ function App() {
       <ShoppingList/>
       {/* 6. useReducer com TS */}
       <Counter2/>
+       {/* 7 - Context API com TypeScript  */}
+       <TemaProvider>
+        <div>
+          <BarraFerramentas />
+          {/* Outros componentes que consomem o contexto TemaContext também viriam aqui */}
+        </div>
+      </TemaProvider>
     </>
   )
 }
