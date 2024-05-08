@@ -1,4 +1,4 @@
-# Hooks e eventos com tipos
+# Hooks e eventos com tipo
 
 Em React com TypeScript, a utilização de hooks e tipos é uma prática comum para tornar o código mais seguro e legível. Os hooks são funções que permitem adicionar funcionalidades de estado e ciclo de vida aos componentes funcionais do React. Eles permitem que você use o estado e outros recursos do React sem escrever uma classe.
 
