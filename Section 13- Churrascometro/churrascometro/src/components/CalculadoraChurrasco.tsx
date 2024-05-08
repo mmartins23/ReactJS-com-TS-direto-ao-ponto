@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { nomesAlimentos } from '../types';
 import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
+import './CalculadoraChurrasco.css';
 
 
 const esquemaValidacao = Yup.object().shape({
@@ -20,7 +21,7 @@ const esquemaValidacao = Yup.object().shape({
 const CalculadoraChurrasco = () => {
   const navigate = useNavigate();
   return (
-    <div>
+    <div className='container'>
       <Formik
         initialValues={{ pessoas: 0, selecaoAlimentos: [] }}
         validationSchema={esquemaValidacao}
@@ -35,8 +36,8 @@ const CalculadoraChurrasco = () => {
       >
         {({ errors, touched }) => (
           <Form>
-            <div>
-              <label htmlFor="pessoas">
+            <div className='inputGroup'>
+              <label className="inputLabel" htmlFor="pessoas">
                 Número de Pessoas:
               </label>
               <Field
@@ -44,7 +45,7 @@ const CalculadoraChurrasco = () => {
                 type="number"
               />
               {errors.pessoas && touched.pessoas ? (
-                <div>{errors.pessoas}</div>
+                <p className='error'>{errors.pessoas}</p>
               ) : null}
             </div>
 
@@ -62,10 +63,10 @@ const CalculadoraChurrasco = () => {
               </div>
             ))}
             {errors.selecaoAlimentos ? (
-              <div>{errors.selecaoAlimentos}</div>
+              <p className='error'>{errors.selecaoAlimentos}</p>
             ) : null}
 
-            <button type="submit">
+            <button className='calculateButton' type="submit">
               Calcular
             </button>
           </Form>
