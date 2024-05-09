@@ -1,11 +1,8 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import PostForm from './PostForm';
 
-const AxiosPosts = () => {
-
-    // JSON placeholder
-    // id, title, body
-
+const PostManager = () => {
     const [posts, setPosts] = useState([]);
     const [error, setError] = useState("");
 
@@ -13,7 +10,7 @@ const AxiosPosts = () => {
         const axiosPosts = async () => {
             try {
                 const res = await axios.get("https://jsonplaceholder.typicode.com/posts");
-                setPosts(res.data);
+                setPosts(res.data.splice(0, 5));
             } catch (error) {
                 setError(error.message)
             }
@@ -21,20 +18,22 @@ const AxiosPosts = () => {
         axiosPosts();
     }, [])
 
-    
     return (
         <div>
-            <h1>Posts (Axios API)</h1>
-            {error ? (<p>Error: {error}</p>) : (
+            <h1>Genrenciar posts</h1>
+            <PostForm />
+            <h2>Postagens</h2>
+            {
                 posts.map(post => (
                     <div key={post.id}>
                         <h2>{post.title}</h2>
                         <p>{post.body}</p>
+                        <button>Editar</button>
                     </div>
                 ))
-            )}
+            }
         </div>
     )
 }
 
-export default AxiosPosts;
+export default PostManager
