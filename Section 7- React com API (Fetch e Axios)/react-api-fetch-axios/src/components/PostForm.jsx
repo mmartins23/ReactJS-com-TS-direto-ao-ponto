@@ -1,13 +1,23 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
 
-const PostForm = () => {
+const PostForm = ({ onSuccess }) => {
 
     const [title, setTitle] = useState("");
     const [body, setBody] = useState("");
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        const newPost = { title, body, userId: 1 }
+
+        try {
+            const res = await axios.post("https://jsonplaceholder.typicode.com/posts", newPost);
+
+            // adicionar post na lista
+            onSuccess(res.data, "add");
+        } catch (error) {
+            console.log("Erro ao enviar mensagem", error)
+        }
     }
 
     return (

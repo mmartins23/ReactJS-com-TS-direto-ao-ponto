@@ -6,6 +6,12 @@ const PostManager = () => {
     const [posts, setPosts] = useState([]);
     const [error, setError] = useState("");
 
+    const handleSuccess = (post, operation) => {
+        if (operation === "add") {
+            setPosts((currentPosts) => [post, ...currentPosts])
+        }
+    }
+
     useEffect(() => {
         const axiosPosts = async () => {
             try {
@@ -21,7 +27,7 @@ const PostManager = () => {
     return (
         <div>
             <h1>Genrenciar posts</h1>
-            <PostForm />
+            <PostForm onSuccess={handleSuccess} />
             <h2>Postagens</h2>
             {
                 posts.map(post => (
