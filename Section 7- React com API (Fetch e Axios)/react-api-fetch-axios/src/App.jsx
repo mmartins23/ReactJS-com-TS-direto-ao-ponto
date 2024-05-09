@@ -1,29 +1,52 @@
-import "./App.css";
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import React from "react";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import FetchPosts from "./components/FetchPosts";
 import AxiosPosts from "./components/AxiosPosts";
-import PostManager from "./components/PostManager";
+import PostsManager from "./components/PostManager";
+import PostLoader from "./components/PostLoader";
+import PostViewer from "./components/PostViewer";
 
-function App() {
+const App = () => {
   return (
-    <Router>
-      {/* 1- Get com Fetch e Axios */}
-      <h1>GET com Fetch e Axios</h1>
-      <div>
-        <Link to="/fetch-posts">Fetch Posts</Link>
-        <Link to="/axios-posts">Axios Posts</Link>
-      </div>
-      {/* 2. HTTP POST e UPDATE/PUT */}
-      <Link to="/posts">Gerenciar Posts</Link>
+    <BrowserRouter>
+      <nav>
+        {/* 15.1 GET com Axios e Fetch */}
+        <h1>GET com Axios e Fetch</h1>
+        <div>
+          <Link to="/fetch-posts">Fetch Posts</Link>
+        </div>
+        <div>
+          <Link to="/axios-posts">Axios Posts</Link>
+        </div>
+        {/* 15.2 POST, PUT e DELETE */}
+        <div>
+          <Link to="/posts">Gerenciar Postagens</Link>
+        </div>
+        {/* 15.3 Tratando erros */}
+        <div>
+          <Link to="/post/1">Carregar Post</Link>
+        </div>
+        <div>
+          <Link to="/post/999">Carregar Post 999</Link>
+        </div>
+        {/* 15.4 Hook para requisições */}
+        <div>
+          <Link to="/post/2">Carregar Post com Hook</Link>
+        </div>
+      </nav>
       <Routes>
-        {/* 1- Get com Fetch e Axios */}
+        {/* 15.1 GET com Axios e Fetch */}
         <Route path="/fetch-posts" element={<FetchPosts />} />
         <Route path="/axios-posts" element={<AxiosPosts />} />
-        {/* 2. HTTP POST e UPDATE/PUT */}
-        <Route path="/posts" element={<PostManager />} />
+        {/* 15.2 POST, PUT e DELETE */}
+        <Route path="/posts" element={<PostsManager />} />
+        {/* 15.3 Tratando erros */}
+        <Route path="/post/:postId" element={<PostLoader />} />
+        {/* 15.4 Hook para requisições */}
+        <Route path="/posts/:postId" element={<PostViewer />} />
       </Routes>
-    </Router>
-  )
-}
+    </BrowserRouter>
+  );
+};
 
-export default App
+export default App;
