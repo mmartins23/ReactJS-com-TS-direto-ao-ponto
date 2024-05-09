@@ -1,24 +1,50 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
 
-const PostForm = ({ onSuccess }) => {
+const PostForm = ({ post, onSuccess }) => {
 
-    const [title, setTitle] = useState("");
-    const [body, setBody] = useState("");
+    const [title, setTitle] = useState(post?.title || "");
+    const [body, setBody] = useState(post?.body || "");
+
+    useEffect(() => {
+        if (post) {
+            setTitle(post.title);
+            setBody(post.body);
+        }
+    }, [post])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         const newPost = { title, body, userId: 1 }
 
         try {
-            const res = await axios.post("https://jsonplaceholder.typicode.com/posts", newPost);
+            if (post) {
+                const res = await axios.put(`https://jsonplaceholder.typicode.com/posts/${post.id}`, newPost);
 
-            // adicionar post na lista
-            onSuccess(res.data, "add");
+                onSuccess(res.data, "update");
+
+            } else {
+                const res = await axios.put("https://jsonplaceholder.typicode.com/posts", newPost);
+
+                onSuccess(res.data, "add");
+            }
+            setTitle("");
+            setBody("");
         } catch (error) {
             console.log("Erro ao enviar mensagem", error)
         }
     }
+
+    const handleDelete = async () => {
+        try {
+            await axios.delete(
+                `https://jsonplaceholder.typicode.com/posts/${post.id}`
+            );
+            onSuccess(post, "delete");
+        } catch (error) {
+            console.error("Erro ao deletar postagem:", error);
+        }
+    };
 
     return (
         <form onSubmit={handleSubmit}>
@@ -38,6 +64,9 @@ const PostForm = ({ onSuccess }) => {
                     placeholder="Digite o conteudo"></textarea>
             </div>
             <button>Enviar</button>
+            {post && (
+                <button type="button" onClick={handleDelete}>Deletar</button>
+            )}
         </form>
     )
 }
