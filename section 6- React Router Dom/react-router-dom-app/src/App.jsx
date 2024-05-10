@@ -5,6 +5,8 @@ import Home from './components/Home';
 import About from './components/About';
 import Contact from './components/Contact';
 import Login from './components/Login';
+import TaskDetails from './components/TaskDetails';
+
 
 function App() {
 
@@ -27,12 +29,22 @@ function App() {
           <li><Link to="/login">Login</Link></li>
         </ul>
       </nav>
+
+      {/* 4 Roteamento dinâmico */}
+      <div>
+        <h2>Tarefas</h2>
+        <Link to={`/tasks/1`}>Tarefa 1</Link>
+        <Link to={`/tasks/2`}>Tarefa 2</Link>
+        <Link to={`/tasks/3`}>Tarefa 3</Link>
+      </div>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
         <Route path='/contact' element={<Contact />} />
         {/* 3. useNavigate() hook */}
         <Route path='/login' element={<Login />} />
+        {/* 12.4 Roteamento dinâmico */}
+        <Route path="/tasks/:taskId" element={<TaskDetails />} />
       </Routes>
     </>
   )
