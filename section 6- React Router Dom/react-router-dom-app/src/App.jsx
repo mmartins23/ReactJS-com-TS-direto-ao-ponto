@@ -15,6 +15,13 @@ function App() {
           <li><Link to="/">Home</Link></li>
           <li><Link to="/about">About</Link></li>
           <li><Link to="/contact">Contact</Link></li>
+          {/* 2. NavLink */}
+          <li> <NavLink
+            to="/contact"
+            className={({ isActive }) => (isActive ? "active-link" : "")}
+          >
+            Contato
+          </NavLink></li>
         </ul>
       </nav>
       <Routes>
