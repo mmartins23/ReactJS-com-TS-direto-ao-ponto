@@ -47,3 +47,24 @@ No exemplo fornecido, as rotas aninhadas são usadas para criar um roteamento hi
    - Quando a URL corresponde à rota do `Dashboard`, o `Outlet` renderiza os componentes das rotas aninhadas dentro do `Dashboard`.
 
 O `Outlet` serve como um ponto de saída para os componentes das rotas aninhadas dentro de um componente pai. Ele permite que você renderize dinamicamente os componentes das rotas aninhadas sem precisar especificar manualmente onde eles devem ser renderizados. Em vez disso, eles são renderizados automaticamente no local onde o `Outlet` é colocado dentro do componente pai.
+
+***
+
+# Page not Found
+
+No aplicativo fornecido, quando uma página não é encontrada (erro 404), isso é tratado usando o componente `NotFound`. Vou explicar como isso foi feito:
+
+1. **Definição do Componente NotFound**:
+   - Um componente chamado `NotFound` é definido para lidar com as páginas não encontradas.
+   - Este componente exibe uma mensagem de erro 404 e um link para retornar à página inicial.
+
+2. **Roteamento para Páginas Não Encontradas**:
+   - No componente `App`, é definida uma rota para páginas não encontradas dentro do roteamento para o `Dashboard`.
+   - A rota para páginas não encontradas é definida usando `<Route path="*" element={<NotFound />} />`.
+   - Isso significa que qualquer URL que não corresponda a nenhuma outra rota dentro do `Dashboard` será redirecionada para o componente `NotFound`.
+
+3. **Renderização do Componente NotFound**:
+   - Quando uma URL não corresponde a nenhuma outra rota dentro do `Dashboard`, o componente `NotFound` é renderizado.
+   - O usuário verá a mensagem "404 - Page Not Found" juntamente com um link para retornar à página inicial.
+
+Essa abordagem garante que qualquer URL que não corresponda a nenhuma rota específica dentro do `Dashboard` seja tratada corretamente, mostrando uma mensagem de erro apropriada ao usuário. Isso ajuda a melhorar a experiência do usuário, fornecendo feedback claro quando uma página não é encontrada e oferecendo uma maneira fácil de retornar à página inicial.

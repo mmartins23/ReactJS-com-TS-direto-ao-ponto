@@ -46,6 +46,14 @@ function App() {
         <Link to={`/tasks/2`}>Tarefa 2</Link>
         <Link to={`/tasks/3`}>Tarefa 3</Link>
       </div>
+
+      {/* 6. 404 */}
+      <div>
+        <h2>Itens</h2>
+        <Link to={`/items/1`}>Item 1</Link>
+        <Link to={`/items/2`}>Item 2</Link>
+      </div>
+
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
@@ -55,11 +63,14 @@ function App() {
         {/* 4 Roteamento dinâmico */}
         <Route path="/tasks/:taskId" element={<TaskDetails />} />
 
-         {/* 5 Rotas aninhadas */}
-         <Route path="/dashboard/*" element={<Dashboard />}>
+        {/* 5 Rotas aninhadas */}
+        <Route path="/dashboard/*" element={<Dashboard />}>
           {/* Rotas aninhadas para o Dashboard */}
           <Route path="profile" element={<Profile />} />
           <Route path="settings" element={<Settings />} />
+
+          {/* 6 404 */}
+          <Route path="*" element={<NotFound />} />
         </Route>
 
       </Routes>
