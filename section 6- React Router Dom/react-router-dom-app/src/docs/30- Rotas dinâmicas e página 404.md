@@ -22,3 +22,28 @@ No componente `App`, o roteamento dinâmico foi utilizado para renderizar o comp
    - Neste exemplo, apenas o ID da tarefa é exibido, mas normalmente você faria uma busca com esse ID para recuperar os detalhes completos da tarefa.
 
 Essa abordagem permite que você crie um sistema de roteamento dinâmico, onde os detalhes da página são renderizados com base nos parâmetros da URL, neste caso, o ID da tarefa. Isso oferece flexibilidade para lidar com diferentes informações ou recursos com base em diferentes parâmetros na URL.
+
+***
+
+# Rotas Aninhadas
+
+No exemplo fornecido, as rotas aninhadas são usadas para criar um roteamento hierárquico dentro do componente `Dashboard`. Vamos explicar como isso funciona:
+
+1. **Rota Principal para o Dashboard**:
+   - Primeiro, é definida uma rota principal para o `Dashboard` usando `<Route path="/dashboard/*" element={<Dashboard />} />`.
+   - Esta rota captura qualquer URL que comece com "/dashboard/" e renderiza o componente `Dashboard`.
+
+2. **Rotas Aninhadas no Componente Dashboard**:
+   - Dentro do componente `Dashboard`, são definidas rotas aninhadas usando `<Route>` para as diferentes páginas ou seções do dashboard, como `Profile` e `Settings`.
+   - Cada rota aninhada tem um caminho relativo à rota principal do `Dashboard`.
+
+3. **Links para as Rotas Aninhadas**:
+   - Dentro do componente `Dashboard`, são renderizados links usando `NavLink` para navegar entre as diferentes rotas aninhadas.
+   - Os links são relativos à URL atual, então `to="profile"` e `to="settings"` correspondem aos caminhos relativos das rotas aninhadas definidas no passo anterior.
+
+4. **Utilização do `Outlet`**:
+   - O `Outlet` é um componente especial fornecido pelo React Router DOM que é usado para renderizar os componentes das rotas aninhadas.
+   - No exemplo, `<Outlet />` é usado para renderizar dinamicamente os componentes das rotas aninhadas dentro do `Dashboard`.
+   - Quando a URL corresponde à rota do `Dashboard`, o `Outlet` renderiza os componentes das rotas aninhadas dentro do `Dashboard`.
+
+O `Outlet` serve como um ponto de saída para os componentes das rotas aninhadas dentro de um componente pai. Ele permite que você renderize dinamicamente os componentes das rotas aninhadas sem precisar especificar manualmente onde eles devem ser renderizados. Em vez disso, eles são renderizados automaticamente no local onde o `Outlet` é colocado dentro do componente pai.

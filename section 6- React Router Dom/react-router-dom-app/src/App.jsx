@@ -5,7 +5,11 @@ import Home from './components/Home';
 import About from './components/About';
 import Contact from './components/Contact';
 import Login from './components/Login';
-import TaskDetails from './components/TaskDetails';
+import TaskDetails from "./components/TaskDetails";
+import Dashboard from "./components/Dashboard";
+import Profile from "./components/Profile";
+import Settings from "./components/Settings";
+import NotFound from "./components/NotFound";
 
 
 function App() {
@@ -27,6 +31,11 @@ function App() {
           </NavLink></li>
           {/* 3. useNavigate */}
           <li><Link to="/login">Login</Link></li>
+
+          {/* 5. Rotas aninhadas */}
+          <li>
+            <Link to="/dashboard">Dashboard</Link>
+          </li>
         </ul>
       </nav>
 
@@ -43,8 +52,16 @@ function App() {
         <Route path='/contact' element={<Contact />} />
         {/* 3. useNavigate() hook */}
         <Route path='/login' element={<Login />} />
-        {/* 12.4 Roteamento dinâmico */}
+        {/* 4 Roteamento dinâmico */}
         <Route path="/tasks/:taskId" element={<TaskDetails />} />
+
+         {/* 5 Rotas aninhadas */}
+         <Route path="/dashboard/*" element={<Dashboard />}>
+          {/* Rotas aninhadas para o Dashboard */}
+          <Route path="profile" element={<Profile />} />
+          <Route path="settings" element={<Settings />} />
+        </Route>
+
       </Routes>
     </>
   )
