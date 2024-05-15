@@ -1,6 +1,12 @@
-const PhotoList = () => {
+import Photo from "./Photo"
+
+const PhotoList = ({photos}) => {
   return (
-    <div>PhotoList</div>
+    <div className="album">
+      {photos.map(photo => (
+        <Photo key={photo.id} data={photo}/>
+      ))}
+    </div>
   )
 }
 
