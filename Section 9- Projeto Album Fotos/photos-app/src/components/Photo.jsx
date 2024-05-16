@@ -1,9 +1,7 @@
-import React from 'react'
-
-const Photo = ({data}) => {
+const Photo = ({ data, setPhotoZoomed }) => {
   return (
-    <div className='photo'>
-       <img src={data.urls.small} alt={data.alt_description}/>
+    <div className='photo' onClick={() => setPhotoZoomed(data)}>
+      <img src={data.urls.small} alt={data.alt_description} />
     </div>
   )
 }
